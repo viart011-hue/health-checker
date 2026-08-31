@@ -677,7 +677,7 @@
 
 <script>
 /* ── 설정 ── */
-const OPENAI_API_KEY = '발급받은 OpenAI 키';
+const OPENAI_API_KEY = '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';
 const USE_DEMO_MODE = false;
 /* ── 성별 상태 ── */
 let selectedGender = ''; // 'male' | 'female' | ''
@@ -931,7 +931,7 @@ document.getElementById('health-form').addEventListener('submit',async(e)=>{
   document.getElementById('result-section').classList.remove('show');
   try{
     let result;
-    if(USE_DEMO_MODE||CLAUDE_API_KEY==='YOUR_API_KEY_HERE'){
+   if(USE_DEMO_MODE||OPENAI_API_KEY==='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'){
       await new Promise(r=>setTimeout(r,1800));
       result=getDemoResult(vals);
     }else{
