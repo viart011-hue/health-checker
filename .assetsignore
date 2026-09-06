@@ -1,0 +1,12 @@
+# Cloudflare asset upload exclusions
+node_modules/
+.git/
+.env
+.env.*
+!.env.example
+functions/
+server.js
+README.md
+package-lock.json
+package.json
+*.log
