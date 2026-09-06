@@ -1,8 +1,13 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "health-checker",
+  "main": "./worker.js",
   "compatibility_date": "2025-01-01",
+  "compatibility_flags": [
+    "nodejs_compat"
+  ],
   "assets": {
-    "directory": "./public"
+    "directory": "./public",
+    "binding": "ASSETS"
   }
 }

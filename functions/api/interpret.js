@@ -111,8 +111,20 @@ function buildErrorResponse(statusCode, message) {
   };
 }
 
-async function callOpenAI(payload) {
-  const apiKey = process.env.OPENAI_API_KEY;
+function getApiKey(event) {
+  if (event && event.env && event.env.OPENAI_API_KEY) {
+    return event.env.OPENAI_API_KEY;
+  }
+
+  if (typeof process !== 'undefined' && process.env && process.env.OPENAI_API_KEY) {
+    return process.env.OPENAI_API_KEY;
+  }
+
+  return undefined;
+}
+
+async function callOpenAI(payload, event) {
+  const apiKey = getApiKey(event);
 
   if (!apiKey) {
     throw new Error('OPENAI_API_KEY가 설정되지 않았습니다.');
@@ -170,7 +182,7 @@ module.exports = {
         return buildErrorResponse(400, '요청 본문이 비어 있습니다.');
       }
 
-      const result = await callOpenAI(body);
+      const result = await callOpenAI(body, event);
       return buildSuccessResponse(result);
     } catch (error) {
       return buildErrorResponse(500, error.message || '분석 요청 처리 중 오류가 발생했습니다.');
