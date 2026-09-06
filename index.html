@@ -294,7 +294,7 @@
     .share-sheet-close{
       width:32px;height:32px;border-radius:50%;border:none;background:var(--gray-100);color:var(--gray-700);font-size:20px;cursor:pointer;
     }
-    .share-option-list{display:flex;flex-direction:column;gap:10px;}
+    .share-option-list{display:flex;flex-direction:column;gap:12px;}
     .share-option{
       width:100%;display:flex;align-items:center;gap:12px;padding:14px 14px;border-radius:var(--radius-md);background:var(--gray-50);border:1px solid var(--gray-100);cursor:pointer;transition:border-color .15s,transform .15s;
       font-family:inherit;font-size:15px;font-weight:700;color:var(--navy);text-align:left;
@@ -794,10 +794,6 @@
         <button type="button" class="share-sheet-close" aria-label="닫기" onclick="closeShareSheet()">×</button>
       </div>
       <div class="share-option-list">
-        <button type="button" class="share-option kakao" onclick="shareKakao()">
-          <span class="share-option-icon">💬</span>
-          <span>카카오톡 공유</span>
-        </button>
         <button type="button" class="share-option sns" id="sns-share-button">
           <span class="share-option-icon">📢</span>
           <span>SNS 공유</span>
